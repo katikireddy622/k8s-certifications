@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: nginx-cm
+  namespace: ckad
+data:
+  environment: prod
+

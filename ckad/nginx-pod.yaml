@@ -1,0 +1,28 @@
+# API Version
+apiVersion: v1
+# Kind
+kind: Pod
+# Metadata
+metadata:
+  name: nginx-pod
+  labels:
+    env: dev
+spec:
+  containers:
+  - image: nginx
+    name: nginx-pod-name
+    env:
+    - name: DB_URL
+      value: postgresql://mydb:5432
+    - name: DB_USERNAME
+      value: admin
+    - name: ENVIRONMENT
+      valueFrom:
+        configMapKeyRef:
+          name: nginx-cm
+	  key: environment
+    resources: {}
+  restartPolicy: Never
+
+# Spec - Desired State
+# Status - Actual State
